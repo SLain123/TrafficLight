@@ -3,14 +3,16 @@ type SetTimeType = {
     time: number;
 };
 
-type SetLightType = {
-    type: string;
-    prevUrl: string;
-};
-
-type SetRedirectType = {
+type ChangeLightType = {
     type: string;
     nextUrl: string;
+    time: number;
+    direction?: boolean;
+};
+
+type SetCurrentLightType = {
+    type: string;
+    prevUrl: string;
 };
 
 const lightActions = {
@@ -19,19 +21,20 @@ const lightActions = {
         time,
     }),
 
-    increaceTimer: (time: number): SetTimeType => ({
-        type: 'INCREACE_TIMER',
-        time,
-    }),
-
-    changePrevLight: (prevUrl: string): SetLightType => ({
-        type: 'CHANGE_PREV_LIGHT',
-        prevUrl,
-    }),
-
-    changeNextLightUrl: (nextUrl: string): SetRedirectType => ({
-        type: 'CHANGE_NEXT_LIGHT',
+    changeLight: (
+        nextUrl: string,
+        time: number,
+        direction?: boolean,
+    ): ChangeLightType => ({
+        type: 'CHANGE_LIGHT',
         nextUrl,
+        time,
+        direction,
+    }),
+
+    setCurrentLight: (prevUrl: string): SetCurrentLightType => ({
+        type: 'SET_CURRENT_LIGTH',
+        prevUrl,
     }),
 };
 

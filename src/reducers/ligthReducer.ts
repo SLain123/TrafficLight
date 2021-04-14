@@ -1,7 +1,8 @@
 export type StateType = {
-    timer: null | number;
+    time: null | number;
     prevLigthUrl: null | string;
     nextLigthUrl: null | string;
+    directionController: boolean;
 };
 
 type ActionType = {
@@ -9,12 +10,14 @@ type ActionType = {
     time: number;
     prevUrl: string;
     nextUrl: string;
+    direction: boolean;
 };
 
 const initialState = {
-    timer: null,
+    time: null,
     prevLigthUrl: null,
     nextLigthUrl: null,
+    directionController: false,
 };
 
 const ligthReducer = (
@@ -22,18 +25,21 @@ const ligthReducer = (
     action: ActionType,
 ): StateType => {
     switch (action.type) {
-        case 'INCREACE_TIMER':
-            return { ...state, timer: action.time };
         case 'SET_TIME':
             return {
                 ...state,
-                timer: action.time,
+                time: action.time,
             };
-        case 'CHANGE_PREV_LIGHT':
+        case 'CHANGE_LIGHT': {
+            return {
+                ...state,
+                nextLigthUrl: action.nextUrl,
+                time: action.time,
+                directionController: action.direction,
+            };
+        }
+        case 'SET_CURRENT_LIGTH': {
             return { ...state, prevLigthUrl: action.prevUrl };
-
-        case 'CHANGE_NEXT_LIGHT': {
-            return { ...state, nextLigthUrl: action.nextUrl };
         }
 
         default:
