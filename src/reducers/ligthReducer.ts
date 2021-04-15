@@ -41,6 +41,9 @@ const ligthReducer = (
         case 'SET_CURRENT_LIGTH': {
             return { ...state, prevLigthUrl: action.prevUrl };
         }
+        case 'CHANGE_DIRECTION': {
+            return { ...state, directionController: action.direction };
+        }
 
         default:
             return state;

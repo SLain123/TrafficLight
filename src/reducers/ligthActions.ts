@@ -7,12 +7,17 @@ type ChangeLightType = {
     type: string;
     nextUrl: string;
     time: number;
-    direction?: boolean;
+    direction: boolean;
 };
 
 type SetCurrentLightType = {
     type: string;
     prevUrl: string;
+};
+
+type changeDirectionType = {
+    type: string;
+    direction: boolean;
 };
 
 const lightActions = {
@@ -24,7 +29,7 @@ const lightActions = {
     changeLight: (
         nextUrl: string,
         time: number,
-        direction?: boolean,
+        direction: boolean,
     ): ChangeLightType => ({
         type: 'CHANGE_LIGHT',
         nextUrl,
@@ -35,6 +40,11 @@ const lightActions = {
     setCurrentLight: (prevUrl: string): SetCurrentLightType => ({
         type: 'SET_CURRENT_LIGTH',
         prevUrl,
+    }),
+
+    changeDirection: (direction: boolean): changeDirectionType => ({
+        type: 'CHANGE_DIRECTION',
+        direction,
     }),
 };
 
