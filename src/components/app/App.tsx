@@ -21,6 +21,7 @@ const App: React.FC = () => {
                     path='/yellow'
                     render={(props) => <Ligth {...props} baseTime={3} />}
                 />
+                <Redirect to='green' />
             </Switch>
         </div>
     );
