@@ -16,3 +16,15 @@
         padding-bottom: 5px;
     }
 }
+
+@media (max-width: 600px) {
+    .timerBlock {
+        width: 70px;
+        height: 70px;
+        font-size: 18px;
+
+        & span {
+            padding-bottom: 0;
+        }
+    }
+}

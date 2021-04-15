@@ -11,3 +11,18 @@
     height: 100vh;
     max-height: 747px;
 }
+
+@media (max-width: 600px) {
+    .lightPic {
+        width: 35%;
+        height: auto;
+        max-height: 100vh;
+    }
+}
+
+@media (max-width: 420px) {
+    .lightPic {
+        width: 50%;
+    }
+}
+
