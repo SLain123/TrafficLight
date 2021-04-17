@@ -12,12 +12,12 @@ import empty from './empty.jpg';
 
 import classes from './light.module.scss';
 
-type PropTypes = {
+interface IPropTypes {
     match: match;
     baseTime: number;
 };
 
-const Light: React.FC<PropTypes> = ({ match, baseTime }) => {
+const Light: React.FC<IPropTypes> = ({ match, baseTime }) => {
     const dispatch = useDispatch();
     const { url }: { url: string } = match;
 
@@ -58,12 +58,14 @@ const Light: React.FC<PropTypes> = ({ match, baseTime }) => {
         imageSrc = green;
     }
     // Присвоение выключенного сигнала светофора для эффекти мигания;
-    if (
-        ((time as number) < 3 && (time as number) > 2.5) ||
-        ((time as number) < 2 && (time as number) > 1.5) ||
-        ((time as number) < 1 && (time as number) > 0.5)
-    ) {
-        imageSrc = empty;
+    if (time) {
+        if (
+            (time < 3 && time > 2.5) ||
+            (time < 2 && time > 1.5) ||
+            (time < 1 && time > 0.5)
+        ) {
+            imageSrc = empty;
+        }
     }
 
     // Присвоение текущего url в состояние prevLigth сразу после перехода на новую страницу;
