@@ -5,10 +5,10 @@ import lightActions from '../../reducers/ligthActions';
 import { match, Redirect } from 'react-router';
 import { RootState } from '../../store';
 
-import green from './green.jpg';
-import yellow from './yellow.jpg';
-import red from './red.jpg';
-import empty from './empty.jpg';
+import green from './green.png';
+import yellow from './yellow.png';
+import red from './red.png';
+import empty from './empty.png';
 
 import classes from './light.module.scss';
 
